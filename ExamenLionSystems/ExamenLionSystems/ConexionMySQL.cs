@@ -11,6 +11,7 @@ namespace ExamenLionSystems
     class ConexionMySQL
     {
         private MySqlConnection connection;
+        Sala sala;
         private string server;
         private string database;
         private string uid;
@@ -75,11 +76,10 @@ namespace ExamenLionSystems
             }
         }
 
-        public List<Sala> obtenerSalasOcupadas()
+        public List<Sala> obtenerSalas()
         {
             List<Sala> listaSalas = new List<Sala>();
-            Sala sala;
-            string query = "SELECT s.Nombre, s.Hora_Inicio, s.Hora_Fin FROM rentas r, salas s WHERE r.ID_Sala=s.ID_Sala AND r.Status='Ocupado'";
+            string query = "SELECT s.ID_Sala, s.Nombre, s.Hora_Inicio, s.Hora_Fin FROM salas s";
 
             if (this.OpenConnection() == true)
             {
@@ -89,7 +89,30 @@ namespace ExamenLionSystems
 
                 while (dataReader.Read())
                 {
-                    sala = new Sala(dataReader.GetString(0), dataReader.GetTimeSpan(1), dataReader.GetTimeSpan(2));
+                    sala = new Sala(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetTimeSpan(2), dataReader.GetTimeSpan(3));
+                    listaSalas.Add(sala);
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+            }
+            return listaSalas;
+        }
+
+        public List<Sala> obtenerSalasOcupadas()
+        {
+            List<Sala> listaSalas = new List<Sala>();
+            string query = "SELECT s.ID_Sala, s.Nombre, s.Hora_Inicio, s.Hora_Fin FROM rentas r, salas s WHERE r.ID_Sala=s.ID_Sala AND r.Status='Ocupado'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    sala = new Sala( dataReader.GetInt32(0) ,dataReader.GetString(1), dataReader.GetTimeSpan(2), dataReader.GetTimeSpan(3));
                     listaSalas.Add(sala);
                 }
 

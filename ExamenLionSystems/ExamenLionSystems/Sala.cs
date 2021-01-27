@@ -8,11 +8,13 @@ namespace ExamenLionSystems
 {
     class Sala
     {
-        private string nombre;
-        private TimeSpan hora_inicio, hora_fin;
+        public int id;
+        public string nombre;
+        public TimeSpan hora_inicio, hora_fin;
 
-        public Sala( string nombre, TimeSpan hora_inicio, TimeSpan hora_fin )
+        public Sala( int id, string nombre, TimeSpan hora_inicio, TimeSpan hora_fin )
         {
+            this.id = id;
             this.nombre = nombre;
             this.hora_inicio = hora_inicio;
             this.hora_fin = hora_fin;

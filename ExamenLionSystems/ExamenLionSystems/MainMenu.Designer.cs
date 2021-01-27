@@ -1,6 +1,6 @@
 ﻿namespace ExamenLionSystems
 {
-    partial class Form1
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.label_softwareName = new System.Windows.Forms.Label();
             this.button_Consultar = new System.Windows.Forms.Button();
             this.button_Registrar = new System.Windows.Forms.Button();
