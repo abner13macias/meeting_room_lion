@@ -16,5 +16,20 @@ namespace ExamenLionSystems
         {
             InitializeComponent();
         }
+
+        private void button_Consultar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Registrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Liberar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
