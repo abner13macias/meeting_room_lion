@@ -51,6 +51,17 @@ namespace ExamenLionSystems
             }
         }
 
+        public void mostrarInfoSalas(ListView listView)
+        {
+            foreach (Sala sala in salasTotales)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Tag = sala.id;
+                item.Text = sala.nombre + ": HORA DE INICIO: " + sala.hora_inicio.ToString() + " HORA DE TERMINO: " + sala.hora_fin.ToString();
+                listView.Items.Add(item);
+            }
+        }
+
         public void mostrarSalasDisponibles(ListView listView)
         {
             foreach (Sala sala in salasDisponibles)
@@ -58,7 +69,6 @@ namespace ExamenLionSystems
                 ListViewItem item = new ListViewItem();
                 item.Tag = sala.id;
                 item.Text = sala.nombre + ": HORA DE INICIO: " + sala.hora_inicio.ToString() + "  HORA DE TERMINO: " + sala.hora_fin.ToString();
-
                 listView.Items.Add(item);
             }
         }

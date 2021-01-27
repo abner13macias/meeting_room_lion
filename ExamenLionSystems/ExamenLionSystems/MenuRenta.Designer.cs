@@ -55,6 +55,7 @@
             this.button_Salir.TabIndex = 1;
             this.button_Salir.Text = "Salir";
             this.button_Salir.UseVisualStyleBackColor = true;
+            this.button_Salir.Click += new System.EventHandler(this.button_Salir_Click);
             // 
             // label_salasDisponibles
             // 

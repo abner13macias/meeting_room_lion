@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace ExamenLionSystems
 {
-    public partial class MenuRenta : Form
+    public partial class MenuSalas : Form
     {
         Servicio servicio = new Servicio();
 
-        public MenuRenta()
+        public MenuSalas()
         {
             InitializeComponent();
-            servicio.mostrarSalasDisponibles(listView_SalasDisponibles);       
-        }
-
-        private void button_Reservar_Click(object sender, EventArgs e)
-        {
-
+            servicio.mostrarInfoSalas(listView_InfoSalas);
         }
 
         private void button_Salir_Click(object sender, EventArgs e)

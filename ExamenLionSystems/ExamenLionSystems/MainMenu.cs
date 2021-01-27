@@ -19,7 +19,8 @@ namespace ExamenLionSystems
 
         private void button_Consultar_Click(object sender, EventArgs e)
         {
-            
+            MenuSalas menuInfoSalas = new MenuSalas();
+            menuInfoSalas.Show();
         }
 
         private void button_Registrar_Click(object sender, EventArgs e)
