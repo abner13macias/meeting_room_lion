@@ -15,11 +15,12 @@ namespace ExamenLionSystems
         public Form1()
         {
             InitializeComponent();
+            Servicio servicio = new Servicio();
         }
 
         private void button_Consultar_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button_Registrar_Click(object sender, EventArgs e)
