@@ -12,11 +12,13 @@ namespace ExamenLionSystems
 {
     public partial class MenuRenta : Form
     {
+        //Se instancia un objeto de tipo Servicio para obtener información de las salas
         Servicio servicio = new Servicio();
 
         public MenuRenta()
         {
             InitializeComponent();
+            //Se instancia un objeto de tipo Servicio para obtener información de las salas disponibles
             servicio.mostrarSalasDisponibles(listView_SalasDisponibles);       
         }
 
@@ -27,6 +29,7 @@ namespace ExamenLionSystems
 
         private void button_Salir_Click(object sender, EventArgs e)
         {
+            //Se cierra la ventana al dar click al botón
             this.Close();
         }
     }

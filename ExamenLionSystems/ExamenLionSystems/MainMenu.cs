@@ -19,12 +19,14 @@ namespace ExamenLionSystems
 
         private void button_Consultar_Click(object sender, EventArgs e)
         {
+            //Se redirecciona a la pantalla de información de salas
             MenuSalas menuInfoSalas = new MenuSalas();
             menuInfoSalas.Show();
         }
 
         private void button_Registrar_Click(object sender, EventArgs e)
         {
+            //Se redirecciona a la pantalla de registro de salas
             MenuRenta menuRentaSala = new MenuRenta();
             menuRentaSala.Show();
         }
