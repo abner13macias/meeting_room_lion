@@ -55,7 +55,7 @@
             this.button_Consultar.Name = "button_Consultar";
             this.button_Consultar.Size = new System.Drawing.Size(206, 409);
             this.button_Consultar.TabIndex = 1;
-            this.button_Consultar.Text = "Ver Salas Disponibles";
+            this.button_Consultar.Text = "Ver Salas de Junta";
             this.button_Consultar.UseVisualStyleBackColor = true;
             this.button_Consultar.Click += new System.EventHandler(this.button_Consultar_Click);
             // 
@@ -83,7 +83,7 @@
             this.button_Liberar.UseVisualStyleBackColor = true;
             this.button_Liberar.Click += new System.EventHandler(this.button_Liberar_Click);
             // 
-            // Form1
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,7 +94,7 @@
             this.Controls.Add(this.button_Consultar);
             this.Controls.Add(this.label_softwareName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MainMenu";
             this.Text = "Abner Yael Díaz de León Macias - Examen ";
             this.ResumeLayout(false);
 

@@ -94,7 +94,7 @@
             this.Controls.Add(this.button_Salir);
             this.Controls.Add(this.button_Reservar);
             this.Name = "MenuRenta";
-            this.Text = "Salas Disponibles";
+            this.Text = "Menú de Renta";
             this.ResumeLayout(false);
 
         }

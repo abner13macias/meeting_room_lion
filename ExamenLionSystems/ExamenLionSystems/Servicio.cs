@@ -15,6 +15,7 @@ namespace ExamenLionSystems
         private List<Sala> salasOcupadas = new List<Sala>();
         private List<Sala> salasDisponibles = new List<Sala>();
         private ConexionMySQL DBConnection = new ConexionMySQL();
+        public string[] infoSala = new string[3];
 
         //Constructor de la clase Servicio, donde se obtiene la información de las salas
         public Servicio()
@@ -22,6 +23,21 @@ namespace ExamenLionSystems
             obtenerSalas();
             obtenerSalasOcupadas();
             calcularSalasDisponibles();
+        }
+
+        //Constructor alternativo de la clase 'Servicio'
+        public Servicio(string id_Sala)
+        {
+            obtenerInfoSalaID(id_Sala);
+        }
+
+        //Método para obtener la información de una Sala en particular
+        private void obtenerInfoSalaID(string id_Sala)
+        {
+            Sala sala = DBConnection.obtenerInfoSala(id_Sala);
+            infoSala[0] = sala.nombre;
+            infoSala[1] = sala.hora_inicio.ToString();
+            infoSala[2] = sala.hora_fin.ToString();
         }
 
         //Se obtiene la información de todas las salas alojadas en la DB
@@ -85,6 +101,12 @@ namespace ExamenLionSystems
                 item.Text = sala.nombre + ": HORA DE INICIO: " + sala.hora_inicio.ToString() + "  HORA DE TERMINO: " + sala.hora_fin.ToString();
                 listView.Items.Add(item);
             }
+        }
+
+        //Método para registrar la renta de una Sala
+        public void registrarRenta(string id_Sala, string nombre)
+        {
+            DBConnection.crearRenta(id_Sala, nombre);
         }
     }
 }

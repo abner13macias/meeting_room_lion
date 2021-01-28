@@ -48,11 +48,11 @@ namespace ExamenLionSystems
                 switch (ex.Number)
                 {
                     case 0:
-                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        MessageBox.Show("No se puede conectar al servidor.  Contacte al administrador");
                         break;
 
                     case 1045:
-                        MessageBox.Show("Invalid username/password, please try again");
+                        MessageBox.Show("Credenciales inválidas, por favor intente de nuevo");
                         break;
                 }
                 return false;
@@ -134,6 +134,50 @@ namespace ExamenLionSystems
             }
             //Se retorna la lista con los objetos creados
             return listaSalas;
+        }
+
+        //Método para obtener la información de una Sala mediante SQL
+        public Sala obtenerInfoSala(string id_Sala)
+        {
+            //Se declara un objeto de tipo Sala
+            Sala sala = new Sala();
+
+            //Se declara la Query de SQL
+            string query = "SELECT s.Nombre, s.Hora_Inicio, s.Hora_Fin FROM salas s WHERE s.ID_Sala =" + id_Sala;
+
+            //Se valida que la conexión a la DB esté abierta
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    //Se crea una instancia de un objeto Sala con los datos obtenidos de la consulta SQL
+                    sala = new Sala(dataReader.GetString(0), dataReader.GetTimeSpan(1), dataReader.GetTimeSpan(2));
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+            }
+            //Se retorna el objeto Sala creado
+            return sala;
+        }
+
+        //Método para registrar la renta de una Sala en SQL
+        public void crearRenta(string id_Sala, string nombre)
+        {
+            //Se declara la Query de SQL
+            string query = "INSERT INTO rentas (ID_Sala, Usuario) VALUES (" + " ' " + id_Sala + " ' " + ", " + " ' " + nombre + " ' " + ")";
+
+            //Se valida que la conexión a la DB esté abierta
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
         }
     }
 }

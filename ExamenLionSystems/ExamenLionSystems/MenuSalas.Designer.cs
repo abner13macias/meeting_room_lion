@@ -81,7 +81,7 @@
             this.Controls.Add(this.button_Salir);
             this.Controls.Add(this.label_salasTotales);
             this.Name = "MenuSalas";
-            this.Text = "MenuSalas";
+            this.Text = "Información de Salas de Juntas";
             this.ResumeLayout(false);
 
         }

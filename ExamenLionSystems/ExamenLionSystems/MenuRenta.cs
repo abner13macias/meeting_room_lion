@@ -24,7 +24,18 @@ namespace ExamenLionSystems
 
         private void button_Reservar_Click(object sender, EventArgs e)
         {
-
+            //Al dar click al botón de 'Rentar', se abre la venta de renta
+            try
+            {
+                //Se obtiene el ID de las salas mostradas en la ListView
+                Renta renta = new Renta(listView_SalasDisponibles.SelectedItems[0].Tag.ToString());
+                renta.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error al procesar su solicitud");
+            }
         }
 
         private void button_Salir_Click(object sender, EventArgs e)

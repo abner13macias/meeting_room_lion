@@ -21,5 +21,19 @@ namespace ExamenLionSystems
             this.hora_inicio = hora_inicio;
             this.hora_fin = hora_fin;
         }
+
+        //Constructor alternativo de la clase 'Sala'
+        public Sala( string nombre, TimeSpan hora_inicio, TimeSpan hora_fin )
+        {
+            this.nombre = nombre;
+            this.hora_inicio = hora_inicio;
+            this.hora_fin = hora_fin;
+        }
+
+        //Constructor base de la clase 'Sala'
+        public Sala()
+        {
+
+        }
     }
 }
