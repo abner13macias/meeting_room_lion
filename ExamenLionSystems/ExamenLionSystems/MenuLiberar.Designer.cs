@@ -33,6 +33,7 @@
             this.button_Salir = new System.Windows.Forms.Button();
             this.button_Liberar = new System.Windows.Forms.Button();
             this.listView_SalasOcupadas = new System.Windows.Forms.ListView();
+            this.label_NoExistenSalas = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_salasOcupadas
@@ -83,12 +84,25 @@
             this.listView_SalasOcupadas.UseCompatibleStateImageBehavior = false;
             this.listView_SalasOcupadas.View = System.Windows.Forms.View.List;
             // 
+            // label_NoExistenSalas
+            // 
+            this.label_NoExistenSalas.AutoSize = true;
+            this.label_NoExistenSalas.BackColor = System.Drawing.Color.Transparent;
+            this.label_NoExistenSalas.Font = new System.Drawing.Font("Dubai", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label_NoExistenSalas.Location = new System.Drawing.Point(106, 190);
+            this.label_NoExistenSalas.Name = "label_NoExistenSalas";
+            this.label_NoExistenSalas.Size = new System.Drawing.Size(394, 45);
+            this.label_NoExistenSalas.TabIndex = 8;
+            this.label_NoExistenSalas.Text = "No hay Salas de Junta Ocupadas";
+            this.label_NoExistenSalas.Visible = false;
+            // 
             // MenuLiberar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(601, 465);
+            this.Controls.Add(this.label_NoExistenSalas);
             this.Controls.Add(this.listView_SalasOcupadas);
             this.Controls.Add(this.button_Liberar);
             this.Controls.Add(this.button_Salir);
@@ -96,6 +110,7 @@
             this.Name = "MenuLiberar";
             this.Text = "MenuLiberar";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -105,5 +120,6 @@
         private System.Windows.Forms.Button button_Salir;
         private System.Windows.Forms.Button button_Liberar;
         private System.Windows.Forms.ListView listView_SalasOcupadas;
+        private System.Windows.Forms.Label label_NoExistenSalas;
     }
 }

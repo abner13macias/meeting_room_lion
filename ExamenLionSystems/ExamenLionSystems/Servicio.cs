@@ -92,28 +92,48 @@ namespace ExamenLionSystems
         }
 
         //Metodo donde se lee la lista de las salas disponibles y se manda a mostrar en la ListView de la Form 'MenuRenta'
-        public void mostrarSalasDisponibles(ListView listView)
+        public void mostrarSalasDisponibles(ListView listView, Label existenSalasLabel)
         {
-            foreach (Sala sala in salasDisponibles)
+            //Se valida que existan salas ocupadas
+            if (salasDisponibles.Count > 0)
             {
-                ListViewItem item = new ListViewItem();
-                item.Tag = sala.id;
-                item.Text = sala.nombre + ": HORA DE INICIO: " + sala.hora_inicio.ToString() + "  HORA DE TERMINO: " + sala.hora_fin.ToString();
-                listView.Items.Add(item);
+                foreach (Sala sala in salasDisponibles)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = sala.id;
+                    item.Text = sala.nombre + ": HORA DE INICIO: " + sala.hora_inicio.ToString() + "  HORA DE TERMINO: " + sala.hora_fin.ToString();
+                    listView.Items.Add(item);
+                }
+            }
+            //De lo contrario se mostrará un mensaje avisando que no hay salas ocupadas
+            else
+            {
+                listView.Visible = false;
+                existenSalasLabel.Visible = true;
             }
         }
 
         //Método para mostrar las Salas ocupadas en la ListView
-        public void mostrarSalasOcupadas(ListView listView)
+        public void mostrarSalasOcupadas(ListView listView, Label existenSalasLabel)
         {
-            //Se recorren la lista de las Salas ocupadas
-            foreach (Sala sala in salasOcupadas)
+            //Se valida que existan salas ocupadas
+            if (salasOcupadas.Count > 0)
             {
-                ListViewItem item = new ListViewItem();
-                item.Tag = sala.id;
-                item.Text = sala.nombre + ": HORA DE INICIO: " + sala.hora_inicio.ToString() + "  HORA DE TERMINO: " + sala.hora_fin.ToString();
-                listView.Items.Add(item);
+                foreach (Sala sala in salasOcupadas)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = sala.id;
+                    item.Text = sala.nombre + ": HORA DE INICIO: " + sala.hora_inicio.ToString() + "  HORA DE TERMINO: " + sala.hora_fin.ToString();
+                    listView.Items.Add(item);
+                }
             }
+            //De lo contrario se mostrará un mensaje avisando que no hay salas ocupadas
+            else
+            {
+                listView.Visible = false;
+                existenSalasLabel.Visible = true;
+            }
+            
         }
 
         //Método para registrar la renta de una Sala

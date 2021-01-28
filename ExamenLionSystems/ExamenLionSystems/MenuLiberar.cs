@@ -19,7 +19,7 @@ namespace ExamenLionSystems
         {
             InitializeComponent();
             //Se muestran las salas ocupadas en la ListView
-            servicio.mostrarSalasOcupadas(listView_SalasOcupadas);
+            servicio.mostrarSalasOcupadas(listView_SalasOcupadas, label_NoExistenSalas);
         }
 
         //Botón para cerrar la ventana
@@ -30,22 +30,29 @@ namespace ExamenLionSystems
 
         private void button_Liberar_Click(object sender, EventArgs e)
         {
-            //Se crea un DialogResult para confirmar que se quiere liberar la Sala seleccionada
-            DialogResult dialogResult = MessageBox.Show("¿Está seguro que quiere liberar esta sala?", "Advertencia", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (label_NoExistenSalas.Visible)
             {
-                try
-                {
-                    //Se ejecuta el método para liberar la sala
-                    servicio.liberarSala(listView_SalasOcupadas.SelectedItems[0].Tag.ToString());
-                    MessageBox.Show("Sala liberada");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al liberar la sala");
-                }
+                MessageBox.Show("No existen salas para liberar!");
             }
+            else
+            {
+                //Se crea un DialogResult para confirmar que se quiere liberar la Sala seleccionada
+                DialogResult dialogResult = MessageBox.Show("¿Está seguro que quiere liberar esta sala?", "Advertencia", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //Se ejecuta el método para liberar la sala
+                        servicio.liberarSala(listView_SalasOcupadas.SelectedItems[0].Tag.ToString());
+                        MessageBox.Show("Sala liberada");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al liberar la sala");
+                    }
+                }
+            }            
         }
     }
 }

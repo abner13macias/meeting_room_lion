@@ -33,6 +33,7 @@
             this.button_Salir = new System.Windows.Forms.Button();
             this.label_salasDisponibles = new System.Windows.Forms.Label();
             this.listView_SalasDisponibles = new System.Windows.Forms.ListView();
+            this.label_NoExistenSalas = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_Reservar
@@ -83,12 +84,25 @@
             this.listView_SalasDisponibles.UseCompatibleStateImageBehavior = false;
             this.listView_SalasDisponibles.View = System.Windows.Forms.View.List;
             // 
+            // label_NoExistenSalas
+            // 
+            this.label_NoExistenSalas.AutoSize = true;
+            this.label_NoExistenSalas.BackColor = System.Drawing.Color.Transparent;
+            this.label_NoExistenSalas.Font = new System.Drawing.Font("Dubai", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label_NoExistenSalas.Location = new System.Drawing.Point(93, 184);
+            this.label_NoExistenSalas.Name = "label_NoExistenSalas";
+            this.label_NoExistenSalas.Size = new System.Drawing.Size(415, 45);
+            this.label_NoExistenSalas.TabIndex = 4;
+            this.label_NoExistenSalas.Text = "No hay Salas de Junta Disponibles";
+            this.label_NoExistenSalas.Visible = false;
+            // 
             // MenuRenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(601, 465);
+            this.Controls.Add(this.label_NoExistenSalas);
             this.Controls.Add(this.label_salasDisponibles);
             this.Controls.Add(this.listView_SalasDisponibles);
             this.Controls.Add(this.button_Salir);
@@ -96,6 +110,7 @@
             this.Name = "MenuRenta";
             this.Text = "Menú de Renta";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -105,5 +120,6 @@
         private System.Windows.Forms.Button button_Salir;
         private System.Windows.Forms.Label label_salasDisponibles;
         private System.Windows.Forms.ListView listView_SalasDisponibles;
+        private System.Windows.Forms.Label label_NoExistenSalas;
     }
 }
