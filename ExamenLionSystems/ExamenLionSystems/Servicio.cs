@@ -103,10 +103,29 @@ namespace ExamenLionSystems
             }
         }
 
+        //Método para mostrar las Salas ocupadas en la ListView
+        public void mostrarSalasOcupadas(ListView listView)
+        {
+            //Se recorren la lista de las Salas ocupadas
+            foreach (Sala sala in salasOcupadas)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Tag = sala.id;
+                item.Text = sala.nombre + ": HORA DE INICIO: " + sala.hora_inicio.ToString() + "  HORA DE TERMINO: " + sala.hora_fin.ToString();
+                listView.Items.Add(item);
+            }
+        }
+
         //Método para registrar la renta de una Sala
         public void registrarRenta(string id_Sala, string nombre)
         {
             DBConnection.crearRenta(id_Sala, nombre);
+        }
+
+        //Método para liberar la renta de una Sala
+        public void liberarSala(string id_Sala)
+        {
+            DBConnection.liberarRenta(id_Sala);
         }
     }
 }

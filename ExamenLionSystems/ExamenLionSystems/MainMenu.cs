@@ -33,7 +33,9 @@ namespace ExamenLionSystems
 
         private void button_Liberar_Click(object sender, EventArgs e)
         {
-
+            //Se redirecciona a la pantalla de liberación de salas
+            MenuLiberar menuLiberar = new MenuLiberar();
+            menuLiberar.Show();
         }
     }
 }

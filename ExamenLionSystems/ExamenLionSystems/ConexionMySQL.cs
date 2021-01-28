@@ -112,7 +112,7 @@ namespace ExamenLionSystems
             List<Sala> listaSalas = new List<Sala>();
 
             //Se declara la Query de SQL
-            string query = "SELECT s.ID_Sala, s.Nombre, s.Hora_Inicio, s.Hora_Fin FROM rentas r, salas s WHERE r.ID_Sala=s.ID_Sala AND r.Status='Ocupado'";
+            string query = "SELECT s.ID_Sala, s.Nombre, s.Hora_Inicio, s.Hora_Fin FROM rentas r, salas s WHERE r.ID_Sala=s.ID_Sala";
 
             //Se valida que la conexión a la DB esté abierta
             if (this.OpenConnection() == true)
@@ -170,6 +170,21 @@ namespace ExamenLionSystems
         {
             //Se declara la Query de SQL
             string query = "INSERT INTO rentas (ID_Sala, Usuario) VALUES (" + " ' " + id_Sala + " ' " + ", " + " ' " + nombre + " ' " + ")";
+
+            //Se valida que la conexión a la DB esté abierta
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
+
+        //Método para liberar una Sala en SQL
+        public void liberarRenta(string id_Sala)
+        {
+            //Se declara la Query de SQL
+            string query = "DELETE FROM rentas WHERE rentas.ID_Sala = " + id_Sala;
 
             //Se valida que la conexión a la DB esté abierta
             if (this.OpenConnection() == true)

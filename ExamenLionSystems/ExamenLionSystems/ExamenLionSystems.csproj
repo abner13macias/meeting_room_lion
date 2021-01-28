@@ -54,6 +54,12 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuLiberar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuLiberar.Designer.cs">
+      <DependentUpon>MenuLiberar.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuSalas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <Compile Include="Servicio.cs" />
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuLiberar.resx">
+      <DependentUpon>MenuLiberar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuSalas.resx">
       <DependentUpon>MenuSalas.cs</DependentUpon>
